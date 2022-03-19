@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Login y Registro</title>
+    <link rel="stylesheet" href="resources/css/estilos.css">
+</head>
+<body>
+    <div class="register-form">
+        <h1>Registrarse</h1>
+        <form action="/registro" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre Completo" required>
+            <input type="email" name="user" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <select name="rol" id="rol" class="select">
+                <option value="administrador">Administrador</option>
+                <option value="usuario">Usuario</option>
+            </select>
+            <div>
+                <input type="submit" class="btn-save" value="Guardar">
+            </div>
+        </form>
+        <div class="form-iniciar">
+            <a href="/iniciar_session" class="iniciar">¿Desea Iniciar Sessión?</a>
+        </div>
+    </div>
+   
+    <!-- swetalert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title:'<%= alertTitle %>',
+                text:'<%= alertMessage %>',
+                icon:'<%= alertIcon %>',
+                showConfirmButton:'<%= showConfirmButton %>',
+                timer:'<%= timer %>'
+            }).then(()=>{
+                window.location='/iniciar_session<%=  %>'
+            })
+        </script>
+    <% } %>
+</body>
+</html>
